@@ -289,6 +289,11 @@ export class TableCellNode extends ElementNode {
   }
 }
 
+/**
+ * Converts domNode to be a Lexical table cell element.
+ * @param domNode the incoming node to be converted
+ * @returns the converted table cell node and a function that can be used to place a node into the table cell
+ */
 export function convertTableCellNodeElement(
   domNode: Node,
 ): DOMConversionOutput {
@@ -335,6 +340,13 @@ export function convertTableCellNodeElement(
   };
 }
 
+/**
+ * Creates a TableCellNode
+ * @param headerState an object containing styling for the header
+ * @param colSpan the amount of columns the table cell spans, eg if colSpan = 2, 1 table cell will live where 2 cells would otherwise be
+ * @param width the width of the table cell in pixels
+ * @returns
+ */
 export function $createTableCellNode(
   headerState: TableCellHeaderState,
   colSpan = 1,
@@ -343,6 +355,11 @@ export function $createTableCellNode(
   return $applyNodeReplacement(new TableCellNode(headerState, colSpan, width));
 }
 
+/**
+ * Determines if the node is an instance of TableCellNode
+ * @param node the node to be tested
+ * @returns true if the node is an instance of TableCellNode, false otherwise
+ */
 export function $isTableCellNode(
   node: LexicalNode | null | undefined,
 ): node is TableCellNode {

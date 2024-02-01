@@ -231,6 +231,12 @@ export class TableNode extends ElementNode {
   }
 }
 
+/**
+ *
+ * @param editor
+ * @param tableNode
+ * @returns
+ */
 export function $getElementForTableNode(
   editor: LexicalEditor,
   tableNode: TableNode,
@@ -244,14 +250,28 @@ export function $getElementForTableNode(
   return getTable(tableElement);
 }
 
+/**
+ *
+ * @param _domNode
+ * @returns
+ */
 export function convertTableElement(_domNode: Node): DOMConversionOutput {
   return {node: $createTableNode()};
 }
 
+/**
+ *
+ * @returns
+ */
 export function $createTableNode(): TableNode {
   return $applyNodeReplacement(new TableNode());
 }
 
+/**
+ *
+ * @param node
+ * @returns
+ */
 export function $isTableNode(
   node: LexicalNode | null | undefined,
 ): node is TableNode {
